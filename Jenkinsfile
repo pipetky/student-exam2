@@ -23,7 +23,7 @@ agent any
         stage('tests') {
 
                     steps {
-                        withEnv{
+                        withEnv(["PATH=/home/jenkins/.local/bin"]){
                                     sh "pip install -e '.[test]'"
                                     sh "coverage run -m pytest"
                                     sh "coverage report"
