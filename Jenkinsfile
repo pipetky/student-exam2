@@ -17,7 +17,7 @@ agent any
 
                     steps {
 
-                                    sh "pytohn -m pip install -e '.[test]'"
+                                    sh "pytohn3 -m pip install -e '.[test]'"
                                     sh "coverage run -m pytest"
                                     sh "coverage report"
                                 
