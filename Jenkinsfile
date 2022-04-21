@@ -16,11 +16,11 @@ agent any
         stage('tests') {
 
                     steps {
-                        withEnv(["PATH=/home/jenkins/.local/bin"]){
+
                                     sh "pytohn -m pip install -e '.[test]'"
                                     sh "coverage run -m pytest"
                                     sh "coverage report"
-                                }   
+                                
                         }
                     }
 
