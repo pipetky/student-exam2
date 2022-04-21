@@ -21,6 +21,14 @@ agent any
               
 
         stage('tests') {
+            
+                stage('install depencies') {
+                    steps {
+                                sh "pip install -e '.[test]'"
+   
+
+                        }
+                    }
 
                 stage('Run tests') {
                     steps {
