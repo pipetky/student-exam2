@@ -21,28 +21,18 @@ agent any
               
 
         stage('tests') {
-            stages{
-                stage('install depencies') {
-                    steps {
-                                sh "pip install -e '.[test]'"
-   
 
+                    steps {
+                        withEnv{
+                                    sh "pip install -e '.[test]'"
+                                    sh "coverage run -m pytest"
+                                    sh "coverage report"
+                                }   
                         }
                     }
 
-                stage('Run tests') {
-                    steps {
-                                sh "pip install -e '.[test]'"
-                                sh "coverage run -m pytest"
-                                sh "coverage report"
-                        }
-                    }
                 
-            }
 
-
-        
-        }
         // stage('Publish reports') { 
         //     steps {
         //         cobertura  (
