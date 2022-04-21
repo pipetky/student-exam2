@@ -10,12 +10,21 @@ agent any
                 checkout scm
             }
             
-        }        
+        }
+        stage('install dependencies') { 
+            
+            steps {
+                checkout scm
+            }
+            
+        }
+              
+
         stage('tests') {
-            parallel {
+
                 stage('Run tests') {
                     steps {
- 
+                                sh "pip install -e '.[test]'"
                                 sh "coverage run -m pytest"
                                 sh "coverage report"
                         }
@@ -23,7 +32,6 @@ agent any
                 
                 
 
-            }
 
         
         }
