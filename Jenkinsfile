@@ -21,7 +21,7 @@ agent any
               
 
         stage('tests') {
-            
+            stages{
                 stage('install depencies') {
                     steps {
                                 sh "pip install -e '.[test]'"
@@ -38,7 +38,7 @@ agent any
                         }
                     }
                 
-                
+            }
 
 
         
