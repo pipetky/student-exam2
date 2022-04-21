@@ -11,13 +11,6 @@ agent any
             }
             
         }
-        stage('install dependencies') { 
-            
-            steps {
-                checkout scm
-            }
-            
-        }
               
 
         stage('tests') {
