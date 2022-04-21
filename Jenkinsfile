@@ -17,7 +17,7 @@ agent any
 
                     steps {
 
-                                    sh "python3 -m venv venv && . venv/bin/activate && python3 -m pip install -e '.[test]' && overage run -m pytest && coverage report"
+                                    sh "python3 -m venv venv && . venv/bin/activate && python3 -m pip install -e '.[test]' && coverage run -m pytest && coverage report"
                                
                         }
                     }
