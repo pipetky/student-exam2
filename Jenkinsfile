@@ -1,7 +1,7 @@
 pipeline {
 
     environment {
-        imagename = 'exam'
+        imagename = 'pipetky/exam'
         registryCredential = 'docker-hub'
         dockerImage = ''
     }
