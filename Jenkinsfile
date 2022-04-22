@@ -1,5 +1,12 @@
 pipeline {
 
+    environment {
+        imagename = "pipetky/exam:webapp"
+        registryCredential = 'docker-hub'
+        dockerImage = ''
+    }
+
+
 agent any
 
     stages {
@@ -13,6 +20,28 @@ agent any
                                
                         }
                     }
+            stage('Building image') {
+      steps{
+        script {
+          dockerImage = docker.build imagename
+        }
+      }
+    }
+    stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
+        }
+      }
+    }
+    stage('Remove Unused docker image') {
+      steps{
+        sh "docker rmi $imagename"
+
+      }
+    }
 
                 
 
