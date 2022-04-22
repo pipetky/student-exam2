@@ -23,7 +23,7 @@ agent any
             stage('Building image') {
       steps{
         script {
-          dockerImage = docker.build("-f Dockerfile.webapp") imagename
+          dockerImage = docker.build imagename
         }
       }
     }
