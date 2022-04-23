@@ -26,7 +26,7 @@ pipeline {
           steps{
             script {
                   docker.withRegistry( '', registryCredential ) {
-                  dockerImage.push("agent")
+                  dockerImage.push("webapp")
                   }
             }
           }
@@ -34,7 +34,7 @@ pipeline {
 
         stage('Remove Unused docker image') {
             steps{
-                sh "docker rmi $imagename:agent"
+                sh "docker rmi $imagename:webapp"
             }
         }
     }        
